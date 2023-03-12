@@ -24,8 +24,11 @@ public class TipoEstabelecimento {
 	@Column(name="id_tipo_estabelecimento")
 	private Integer id;
 	
-	@Column(name="nome_estabelecimento",length=50)
+	@Column(name="nome_estabelecimento",length=60)
 	private String nome;
+	
+	@Column(name="tipo_estabelecimento",length=40)
+	private String tipo;
 	
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
@@ -38,10 +41,11 @@ public class TipoEstabelecimento {
 		// TODO Auto-generated constructor stub
 	}
 
-	public TipoEstabelecimento(Integer id, String nome, Calendar dataCriacao) {
+	public TipoEstabelecimento(Integer id, String nome, String tipo, Calendar dataCriacao) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.tipo = tipo;
 		this.dataCriacao = dataCriacao;
 	}
 
@@ -61,6 +65,14 @@ public class TipoEstabelecimento {
 		this.nome = nome;
 	}
 
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
 	public Calendar getDataCriacao() {
 		return dataCriacao;
 	}
@@ -71,7 +83,6 @@ public class TipoEstabelecimento {
 	
 	
 	
-
 
 }
 

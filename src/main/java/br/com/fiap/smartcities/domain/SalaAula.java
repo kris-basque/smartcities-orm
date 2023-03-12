@@ -27,34 +27,38 @@ public class SalaAula {
 	@Column(name="nm_sala")
 	private String nomeSala;
 	
-	@Column(name="nu_numeroSala")
+	@Column(name="nr_numeroSala")
 	private String numeroSala;
 	
 	@Column(name="nn_periodo_aula")
 	private String periodoAula;
 	
-	@Column(name="nm_grade_classe")
-	private String gradeClasse;
+	@CreationTimestamp
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="dt_data_inicio")
+	private Calendar dataInicio;
 	
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="dt_data_aulas")
-	private Calendar dataAulas;
+	@Column(name="dt_data_termino")
+	private Calendar dataTermino;
+	
+	
 
 	public SalaAula() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public SalaAula(Integer idSala, String nomeSala, String numeroSala, String periodoAula, String gradeClasse,
-			Calendar dataAulas) {
+	public SalaAula(Integer idSala, String nomeSala, String numeroSala, String periodoAula, Calendar dataInicio,
+			Calendar dataTermino) {
 		super();
 		this.idSala = idSala;
 		this.nomeSala = nomeSala;
 		this.numeroSala = numeroSala;
 		this.periodoAula = periodoAula;
-		this.gradeClasse = gradeClasse;
-		this.dataAulas = dataAulas;
+		this.dataInicio = dataInicio;
+		this.dataTermino = dataTermino;
 	}
 
 	public Integer getIdSala() {
@@ -89,22 +93,24 @@ public class SalaAula {
 		this.periodoAula = periodoAula;
 	}
 
-	public String getGradeClasse() {
-		return gradeClasse;
+	public Calendar getDataInicio() {
+		return dataInicio;
 	}
 
-	public void setGradeClasse(String gradeClasse) {
-		this.gradeClasse = gradeClasse;
+	public void setDataInicio(Calendar dataInicio) {
+		this.dataInicio = dataInicio;
 	}
 
-	public Calendar getDataAulas() {
-		return dataAulas;
+	public Calendar getDataTermino() {
+		return dataTermino;
 	}
 
-	public void setDataAulas(Calendar dataAulas) {
-		this.dataAulas = dataAulas;
+	public void setDataTermino(Calendar dataTermino) {
+		this.dataTermino = dataTermino;
 	}
 	
 	
+	
 
+	
 }

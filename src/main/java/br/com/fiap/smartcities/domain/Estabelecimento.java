@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -24,13 +26,34 @@ public class Estabelecimento {
 	@Column(name = "id_estabelecimento")
 	private Integer id;
 
-	@Column(name = "nome_estabelecimento", length = 50)
+	@Column(name = "nome_estabelecimento", length = 60)
 	private String nome;
+	
+	@Column(name="cnpj_estabelecimento",length=14)
+	private Integer cnpj;
 
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "dh_criacao")
+	@Column(name = "dt_criacao")
 	private Calendar dataCriacao;
+	
+//	@OneToMany
+//	@JoinColumn(name="id_tipo_estabelecimento")
+//	private TipoEstabelecimento tipo_estabelecimento;
+	
+
+	public Estabelecimento() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Estabelecimento(Integer id, String nome, Integer cnpj, Calendar dataCriacao) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.cnpj = cnpj;
+		this.dataCriacao = dataCriacao;
+	}
 
 	public Integer getId() {
 		return id;
@@ -48,6 +71,14 @@ public class Estabelecimento {
 		this.nome = nome;
 	}
 
+	public Integer getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(Integer cnpj) {
+		this.cnpj = cnpj;
+	}
+
 	public Calendar getDataCriacao() {
 		return dataCriacao;
 	}
@@ -55,6 +86,7 @@ public class Estabelecimento {
 	public void setDataCriacao(Calendar dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
+
 	
 	
 }

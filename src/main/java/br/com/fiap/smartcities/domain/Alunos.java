@@ -24,33 +24,41 @@ public class Alunos {
 	@Column(name="id_alunos")
 	private Integer idAluno;
 	
-	@Column(name="nome_aluno",length=50)
+	@Column(name="nome_aluno",length=60)
 	private String nomeAluno;
 	
-	@Column(name="sobrenome_aluno")
+	@Column(name="sobrenome_aluno",length=180)
 	private String sobrenomeAluno;
 	
-	@Column(name="endereco_aluno")
+	@Column(name="idade_aluno",length=2)
+	private Integer idadeAluno;
+	
+	@Column(name="endereco_aluno",length=180)
 	private String enderecoAluno;
+	
+	@Column(name="serie_aluno",length=4)
+	private String serieAluno;
 	
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="dt_inscricao")
 	private Calendar dataInscricao;
-
+	
 
 	public Alunos() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Alunos(Integer idAluno, String nomeAluno, String sobrenomeAluno, String enderecoAluno,
-			Calendar dataInscricao) {
+	public Alunos(Integer idAluno, String nomeAluno, String sobrenomeAluno, Integer idadeAluno, String enderecoAluno,
+			String serieAluno, Calendar dataInscricao) {
 		super();
 		this.idAluno = idAluno;
 		this.nomeAluno = nomeAluno;
 		this.sobrenomeAluno = sobrenomeAluno;
+		this.idadeAluno = idadeAluno;
 		this.enderecoAluno = enderecoAluno;
+		this.serieAluno = serieAluno;
 		this.dataInscricao = dataInscricao;
 	}
 
@@ -78,12 +86,28 @@ public class Alunos {
 		this.sobrenomeAluno = sobrenomeAluno;
 	}
 
+	public Integer getIdadeAluno() {
+		return idadeAluno;
+	}
+
+	public void setIdadeAluno(Integer idadeAluno) {
+		this.idadeAluno = idadeAluno;
+	}
+
 	public String getEnderecoAluno() {
 		return enderecoAluno;
 	}
 
 	public void setEnderecoAluno(String enderecoAluno) {
 		this.enderecoAluno = enderecoAluno;
+	}
+
+	public String getSerieAluno() {
+		return serieAluno;
+	}
+
+	public void setSerieAluno(String serieAluno) {
+		this.serieAluno = serieAluno;
 	}
 
 	public Calendar getDataInscricao() {
@@ -94,6 +118,9 @@ public class Alunos {
 		this.dataInscricao = dataInscricao;
 	}
 	
+	
+
+
 	
 
 }
